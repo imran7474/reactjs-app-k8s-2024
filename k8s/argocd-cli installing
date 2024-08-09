@@ -1,0 +1,22 @@
+#argocd installation in minikube 
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# argocd cli 
+
+# Linux
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x /usr/local/bin/argocd
+#port farwarding to acess argocd 
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+
+# get argocd password username admin and get password using below command acess via https://localhost:8080
+
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+
+# login to argocd cli 
+argocd login localhost:8080
+and deploy argocd yml in k8s folder
