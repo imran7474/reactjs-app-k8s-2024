@@ -13,7 +13,7 @@ metadata:
     app: reactjs-app
     version: v1
 spec:
-  replicas: 2
+  replicas: 8
   selector:
     matchLabels:
       app: reactjs-app
