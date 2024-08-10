@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: reactjs-app-argocd
+  name: mern-app
   namespace: argocd
 spec:
   project: default
@@ -10,9 +10,10 @@ spec:
     targetRevision: HEAD
     path: k8s
   destination:
-    server: https://kubernetes.default.svc
-    namespace: frontend
+    server: 'https://kubernetes.default.svc'
+    namespace: mern
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+

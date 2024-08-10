@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-configmap
+  namespace: mern
+data:
+  MONGO_URI: mongodb://mongo-service:27017/mern-db
