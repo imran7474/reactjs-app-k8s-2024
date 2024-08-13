@@ -13,8 +13,11 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
+# Copy the .env file
+COPY .env .env
+
 # Expose the port the app runs on
-EXPOSE 3000
+EXPOSE 5000
 
 # Start the application
 CMD ["node", "index.js"]
